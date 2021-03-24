@@ -1,6 +1,7 @@
 import React from 'react'
 
 
+
 export default function Form(props) {
     const {values, change, submit, disabled, errors, } = props
 
@@ -11,45 +12,45 @@ export default function Form(props) {
 
     const onChange = (event) => {
         const {checked, name, value, type} = event.target
-        valueToUse = type === 'checkbox'? checked : value
+        const valueToUse = type === 'checkbox'? checked : value
         change(name, valueToUse);
     }
-    
-    <form className="container" onSubmit={OnSubmit}>
-        <h2>Add New User</h2>
+    return(
+    <form className="container" onSubmit={onSubmit}>
+        <h3>Add New User</h3>
         <div className="input">
-        <label>Name:
+        <label>Name
             <input 
             type="text"
             value={values.name}
             name="name"
-            onChange={OnChange}
+            onChange={onChange}
             />
-        </label>
-        <label>Email:
+        </label><br />
+        <label>Email
             <input 
                 type="text"
-                value={values.name}
+                value={values.email}
                 name="email"
-                onChange={OnChange}
+                onChange={onChange}
             />
-        </label>
+        </label><br />
         <label>Password
             <input 
-                type="text"
-                value={values.passwrod}
+                type="password"
+                value={values.password}
                 name="password"
-                onChange={OnChange}
+                onChange={onChange}
             />
-        </label>
+        </label><br />
         <label>Terms of Service
             <input 
                 type="checkbox"
                 value={values.terms}
-                name="term"
-                onChange={OnChange}
+                name="terms"
+                onChange={onChange}
             />
-        </label>
+        </label><br />
         </div>
         <div className="submit">
             <div className="errors">
@@ -61,5 +62,5 @@ export default function Form(props) {
             <button disabled={disabled}>Submit</button>
         </div>
     </form>
-    
+    )
 }
