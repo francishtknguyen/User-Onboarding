@@ -14,7 +14,9 @@ code {
 #root{
   display: flex;
   justify-content: space-around;
-  margin-top: 50%;
+  height: 100vh;
+  background: url('https://images.pexels.com/photos/1144687/pexels-photo-1144687.jpeg?auto=compress&cs=tinysrgb&h=750&w=1260');
+  background-repeat: repeat;
 }
 .App{
 
@@ -22,20 +24,35 @@ code {
   /* height:30%; */
   /* margin-top: 25%; */
   border-radius: 10px ;
-  
   margin-right:5px;
   display:flex;
   justify-content: space-around;
   
 }
+.cards{
+  display:flex;
+  flex-direction: column;
+  margin-top:30%;
+  /* background: #C1C5D2; */
+  
+}
 .card{
   border: solid 1px grey;
   border-radius: 10px ;
-  background: #BADA55;
+  background: #C1C5D2;
+  opacity:.8;
+  width:150%;
+  margin-bottom: 5px;
 }
 .form{
   border: solid 1px grey;
   border-radius: 10px ;
-  background: #BADA55;
+  background: #C1C5D2;
+  opacity:.8;
+  width:30%;
+  height:30%;
+  margin-top:30%;
 }
-
+.errors{
+  color:red;
+}
