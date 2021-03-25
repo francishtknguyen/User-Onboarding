@@ -28,7 +28,7 @@ function App() {
   const [members, setMembers] = useState(initialMembers);
   const [form, setForm] = useState(initialFormValues);
   const [disabled,setDisabled] = useState(initialDisable);
-  const [errors, setErrors] = useState(intialFormErrors);
+  const [errors, setErrors] = useState(null);
 
   // const getMembers = () => {
     
