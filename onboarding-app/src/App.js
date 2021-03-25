@@ -11,14 +11,14 @@ const initialFormValues = {
   name:'',
   email:'',
   password:'',
-  terms: false,
-}
+  termsAgreed: false,
+};
 
 const intialFormErrors = [{
   name:'',
   email:'',
   password:'',
-}]
+}];
 
 const initialMembers =[];
 
@@ -49,19 +49,22 @@ function App() {
     .then(res => {
       console.log(res)
       setMembers([res.data, ...members])
+      setForm(initialFormValues);
+      setDisabled(true);
     })
     .catch(err => {
       console.log(err)
     })
-    setForm(initialFormValues);
+    
+    
   }
 
   const submit = () => {
     const newMembers = {
       name: form.name.trim(),
-      email:form.email.trim(),
-      password:form.password.trim(),
-      checked: form.terms,
+      email: form.email.trim(),
+      password: form.password.trim(),
+      termsAgreed: form.termsAgreed,
     }
     postMembers(newMembers);
   }
@@ -94,25 +97,25 @@ function App() {
 
   return (
     <div className="App">
-    <div className="form">
-    <header>
-      <h1>Onboarding App</h1>
-    </header>
-    
-      <Form 
-      values = {form}
-      change = {change}
-      submit = {submit}
-      disabled = {disabled}
-      errors = {errors} 
-      />
-    </div>
+      <div className="form">
+        <header>
+          <h1>Onboarding<br /> App</h1>
+        </header>
+        
+          <Form 
+          values = {form}
+          change = {change}
+          submit = {submit}
+          disabled = {disabled}
+          errors = {errors} 
+          />
+      </div>
 
-    <div className="cards">
-      {members.map( member => {
-        return(<Member key={member.id} details={member}/>)
-      })}
-    </div>
+      <div className="cards">
+        {members.map( (member, idx) => {
+          return(<Member key={idx} details={member}/>)
+        })}
+      </div>
     </div>
   );
 }

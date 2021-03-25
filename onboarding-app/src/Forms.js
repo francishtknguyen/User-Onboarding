@@ -12,7 +12,7 @@ export default function Form(props) {
 
     const onChange = (event) => {
         const {checked, name, value, type} = event.target
-        const valueToUse = type === 'checkbox'? checked : value
+        const valueToUse = type === "checkbox" ? checked : value
         change(name, valueToUse);
     }
     return(
@@ -46,8 +46,8 @@ export default function Form(props) {
         <label>Terms of Service
             <input 
                 type="checkbox"
-                value={values.terms}
-                name="terms"
+                checked={values.termsAgreed}
+                name="termsAgreed"
                 onChange={onChange}
             />
         </label><br />
@@ -59,7 +59,7 @@ export default function Form(props) {
                 <div>{errors.password}</div>
                 <div>{errors.terms}</div>
             </div>
-            <button disabled={disabled}>Submit</button>
+            <button disabled={disabled} type="submit">Submit</button>
         </div>
     </form>
     )
